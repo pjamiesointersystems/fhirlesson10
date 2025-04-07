@@ -1,0 +1,27 @@
+###
+POST http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    { 
+      "fullUrl": "Patient/70264",
+      "resource": 
+        {
+          "resourceType": "Binary",
+          "contentType": "application/json-patch+json",
+          "data": "Clt7CiAgIm9wIjogInJlcGxhY2UiLAogICJwYXRoIjogIi9nZW5kZXIiLAogICJ2YWx1ZSI6ICJmZW1hbGUiCn1dCg=="
+        },
+        "request": {
+        "method": "PATCH",
+        "url": "Patient/70264",
+      }
+    }
+  ]
+}

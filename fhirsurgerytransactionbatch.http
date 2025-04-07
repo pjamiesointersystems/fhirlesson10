@@ -1,0 +1,89 @@
+###
+POST http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+     "fullUrl": "urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f0a",
+      "resource": {
+        "resourceType": "Patient",
+        "name": [{ "family": "Smith", "given": ["John"] }],
+        "gender": "male",
+        "birthDate": "1980-05-15"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+       "fullUrl": "urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f0b",
+       "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "coding": [{ "system": "http://snomed.info/sct", "code": "387713003", "display": "Surgical procedure" }]
+        },
+        "subject": { "type": "Patient", "reference": "urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f0a" },
+        "performedDateTime": "2024-03-10"
+      },
+      "request": { "method": "POST", "url": "Procedure" }
+    },
+    {
+      "fullUrl": "urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f1a",
+      "resource": {
+        "resourceType": "Patient",
+        "name": [{ "family": "Johnson", "given": ["Emma"] }],
+        "gender": "female",
+        "birthDate": "1975-09-23"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "fullUrl": "urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f1b",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "coding": [{ "system": "http://snomed.info/sct", "code": "387713003", "display": "Surgical procedure" }]
+        },
+        "subject": { "type": "Patient",  "reference": "urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f1a" },
+        "performedDateTime": "2024-02-28"
+      },
+      "request": { "method": "POST", "url": "Procedure" }
+    },
+    {
+      "fullUrl": "urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f2a",
+      "resource": {
+        "resourceType": "Patient",
+        "name": [{ "family": "Williams", "given": ["Noah"] }],
+        "gender": "male",
+        "birthDate": "1992-07-11"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "fullUrl": "uurn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f2b",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "coding": [{ "system": "http://snomed.info/sct", "code": "387713003", "display": "Surgical procedure" }]
+        },
+        "subject": {  "type": "Patient", "reference": "urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f2a" },
+        "performedDateTime": "2024-01-15"
+      },
+      "request": { "method": "POST", "url": "Procedure" }
+    },
+    
+    { "fullUrl": "urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f3a", "resource": { "resourceType": "Patient",  "name": [{ "family": "Brown", "given": ["Olivia"] }], "gender": "female", "birthDate": "1985-06-08" }, "request": { "method": "POST", "url": "Patient" } },
+    { "fullUrl": "urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f3b", "resource": { "resourceType": "Procedure",  "status": "completed", "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "387713003", "display": "Surgical procedure" }] }, "subject": {"type": "Patient", "reference": "urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f3a" }, "performedDateTime": "2024-03-01" }, "request": { "method": "POST", "url": "Procedure" } },
+
+    { "fullUrl": "urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f4a", "resource": { "resourceType": "Patient",  "name": [{ "family": "Davis", "given": ["William"] }], "gender": "male", "birthDate": "1978-12-02" }, "request": { "method": "POST", "url": "Patient" } },
+    { "fullUrl": "urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f4b", "resource": { "resourceType": "Procedure",  "status": "completed", "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "387713003", "display": "Surgical procedure" }] }, "subject": { "type": "Patient",  "reference": "urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f4a" }, "performedDateTime": "2024-02-20" }, "request": { "method": "POST", "url": "Procedure" } }
+  ]
+}

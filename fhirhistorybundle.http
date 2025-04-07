@@ -1,0 +1,90 @@
+GET http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/metadata
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Connection: close
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+###
+
+GET http://127.0.0.1:8080/csp/fhir-management/api/info
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Connection: close
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+###
+
+
+GET http://127.0.0.1:8080/csp/fhir-management/api/namespaces
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Connection: close
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+###
+
+
+GET http://127.0.0.1:8080/csp/fhir-management/api/endpoints?namespace=demo
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Connection: close
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+###
+
+
+GET http://127.0.0.1:8080/csp/fhir-management/api/packages?namespace=demo
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Connection: close
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+###
+
+
+
+GET http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/namespaces
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Connection: close
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+###
+
+GET http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/Patient/2
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+
+
+PUT http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/Patient/70285
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+
+{
+        "resourceType": "Patient",
+        "id": "70285",
+        "name": [{"given": ["Susan"], "family": "Doe"}],
+        "active": true,
+}
+###
+
+GET http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/Patient/70285/_history
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+
+###

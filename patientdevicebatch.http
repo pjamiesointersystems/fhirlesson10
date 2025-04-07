@@ -1,0 +1,78 @@
+###
+POST http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/Bundle
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "name": [
+          {
+            "use": "official",
+            "family": "Herrington",
+            "given": ["Robert"]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1956-07-15",
+        "address": [
+          {
+            "use": "home",
+            "line": ["123 Main Street"],
+            "city": "Springfield",
+            "state": "IL",
+            "postalCode": "62704",
+            "country": "USA"
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName",
+            "valueString": "Doe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+        "resource": {
+        "resourceType": "Device",
+        "identifier": [
+          {
+            "system": "https://preventhf.com/devices",
+            "value": "scale-002"
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "706964009",
+              "display": "Body weight scale"
+            }
+          ]
+        },
+        "manufacturer": "PreventHF",
+        "deviceName": [{
+           "name": "PreventHF Smart Scale 3.0",
+           "type": "user-friendly-name"
+        }],   
+        "modelNumber": "3"
+        },
+      "request": {
+        "method": "POST",
+        "url": "Device"
+      }
+    }
+  ]
+}

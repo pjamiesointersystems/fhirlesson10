@@ -1,0 +1,319 @@
+###
+GET http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/Patient/70264
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation  
+
+
+
+###
+POST http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "request": {
+        "method": "PATCH",
+        "url": "Patient/70264",
+        "headers": {
+          "Content-Type": "application/json-patch+json"
+        }
+      },
+      "resource": [
+        {
+          "op": "replace",
+          "path": "/gender",
+          "value": "female"
+        }
+      ]
+    }
+  ]
+}
+
+
+###
+GET http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/Bundle/70270
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation  
+
+###
+POST http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/Bundle
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "request": {
+        "method": "PUT",
+        "url": "Patient/70264"
+      },
+      "resource": {
+        "resourceType": "Patient",
+        "id": "70264",
+        "gender": "female",
+        "name": [
+          {
+            "use": "official",
+            "family": "Herrington",
+            "given": [ "Roberta" ]
+          }
+        ],
+        "birthDate": "1956-07-15",
+        "address": [
+          {
+            "use": "home",
+            "line": [ "123 Main Street" ],
+            "city": "Springfield",
+            "state": "IL",
+            "postalCode": "62704",
+            "country": "USA"
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName",
+            "valueString": "Doe"
+          }
+        ]
+      }
+    }
+  ]
+}
+
+###
+POST http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "request": {
+        "method": "PUT",
+        "url": "Patient/70264"
+      },
+      "resource": {
+        "resourceType": "Patient",
+        "id": "70264",
+        "gender": "male",
+        "name": [
+          {
+            "use": "official",
+            "family": "Herrington",
+            "given": [ "Robert" ]
+          }
+        ],
+        "birthDate": "1956-07-15",
+        "address": [
+          {
+            "use": "home",
+            "line": [ "123 Main Street" ],
+            "city": "Springfield",
+            "state": "IL",
+            "postalCode": "62704",
+            "country": "USA"
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName",
+            "valueString": "Doe"
+          }
+        ]
+      }
+    }
+  ]
+}
+
+
+###
+POST http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      },
+      "resource": {
+        "resourceType": "Patient",
+        "gender": "female",
+        "name": [
+          {
+            "use": "official",
+            "family": "Stewart",
+            "given": [ "Martha" ]
+          }
+        ],
+        "birthDate": "1950-07-15",
+        "address": [
+          {
+            "use": "home",
+            "line": [ "123 Main Street" ],
+            "city": "Portland",
+            "state": "Maine",
+            "postalCode": "72704",
+            "country": "USA"
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName",
+            "valueString": "Cook"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "Patient/70264"
+      }
+    }
+  ]
+}
+
+###
+POST http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      },
+      "resource": {
+        "resourceType": "Patient",
+        "gender": "female",
+        "name": [
+          {
+            "use": "official",
+            "family": "Stewart",
+            "given": [ "Martha" ]
+          }
+        ],
+        "birthDate": "1950-07-15",
+        "address": [
+          {
+            "use": "home",
+            "line": [ "123 Main Street" ],
+            "city": "Portland",
+            "state": "Maine",
+            "postalCode": "72704",
+            "country": "USA"
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName",
+            "valueString": "Cook"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "Patient/70264"
+      }
+    }
+  ]
+}
+
+###
+POST http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+
+{
+  "resourceType": "Bundle",
+  "type": "batch",
+  "entry": [
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "Patient/70271"
+      },
+     }
+  ]
+}
+
+###
+GET http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/Patient/70264
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation  
+
+###
+
+###
+POST http://127.0.0.1:8080/csp/healthshare/demo/fhir/r4/
+Authorization: Basic _System:ISCDEMO
+Accept: */*
+content-type: application/fhir+json
+Accept-Encoding: gzip, deflate, br
+Prefer: return=representation
+
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    { 
+      "fullUrl": "Patient/70264",
+      "resource": 
+        {
+          "resourceType": "Binary",
+          "contentType": "application/json-patch+json",
+          "data": "Clt7CiAgIm9wIjogInJlcGxhY2UiLAogICJwYXRoIjogIi9nZW5kZXIiLAogICJ2YWx1ZSI6ICJmZW1hbGUiCn1dCg=="
+        },
+        "request": {
+        "method": "PATCH",
+        "url": "Patient/70264",
+      }
+    }
+  ]
+}
